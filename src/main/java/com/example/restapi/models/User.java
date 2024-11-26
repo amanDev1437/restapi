@@ -1,5 +1,7 @@
 package com.example.restapi.models;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -15,6 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonFilter("UserFilter")
 public class User {
 
     @Id
@@ -26,4 +29,6 @@ public class User {
 
     @Past
     private LocalDate dob;
+
+    private String password;
 }
